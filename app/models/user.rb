@@ -18,7 +18,12 @@ class User < ActiveRecord::Base
   validates :password, presence: true, on: :create
   validates :password, confirmation: true
 
+  before_validation :downcase_username
   before_save :encrypt_password
+
+  def downcase_username
+    self.username = username.downcase
+  end
 
   def encrypt_password
     if self.password.present?
