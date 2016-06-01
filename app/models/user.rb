@@ -9,11 +9,14 @@ class User < ActiveRecord::Base
   has_many :questions
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
+  validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: 'invalid email format' }
+  validates :username, format: { with: /\A[a-zA-Z0-9_]+\z/, message: 'username may only contain latin letters, numbers and _'}
+  validates :username, length: { maximum: 40 }
 
   attr_accessor :password
 
   validates :password, presence: true, on: :create
-  validates_confirmation_of :password
+  validates :password, confirmation: true
 
   before_save :encrypt_password
 
