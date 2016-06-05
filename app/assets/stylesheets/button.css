@@ -24,6 +24,11 @@
   color: #fff;
 }
 
+.button-red {
+    background: #ff0000;
+    color: #ffffff;
+}
+
 .button-small {
   font-size: 15px;
   line-height: 15px;
