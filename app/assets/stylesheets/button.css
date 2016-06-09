@@ -27,6 +27,7 @@
 .button-red {
     background: #ff0000;
     color: #ffffff;
+    float: right;
 }
 
 .button-small {
