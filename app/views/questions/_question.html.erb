@@ -1,12 +1,24 @@
 <% question ||= nil %>
 <% action_icon = question.answer.blank? ? 'reply' : 'pencil' %>
 
+<% author = User.find(question.author_id) if question.author_id.present? %>
+
+
 
 <div class="question">
   <div class="question-content">
+    <div class="question-text text-small">
+      <% if author == nil %>
+          <p> Спросил(a): Аноним</p>
+      <% else %>
+          <p>Спросил(a): <%=link_to author.name, user_path(author) %></p>
+      <% end %>
+    </div>
     <div class="question-text text-lead">
       <%= question.text %>
     </div>
+
+
 
     <% if question.answer.present? %>
       <div class="question-answer text-lead">
