@@ -9,9 +9,9 @@
   <div class="question-content">
     <div class="question-text text-small">
       <% if author == nil %>
-          <p> Спросил(a): Аноним</p>
+          <p> Аноним спрашивает: </p>
       <% else %>
-          <p>Спросил(a): <%=link_to author.name, user_path(author) %></p>
+          <p> <%=link_to author.name, user_path(author), style: 'text-decoration: underline' %> спрашивает:</p>
       <% end %>
     </div>
     <div class="question-text text-lead">

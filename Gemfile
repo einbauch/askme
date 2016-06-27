@@ -8,6 +8,9 @@ gem 'rails', '4.2.6'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# https://github.com/ambethia/recaptcha
+gem 'recaptcha', require: 'recaptcha/rails'
+
 group :production do
   gem 'pg'
   gem 'uglifier'
